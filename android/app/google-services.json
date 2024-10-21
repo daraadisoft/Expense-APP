@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "368350921654",
+    "project_id": "fir-firebase-737ba",
+    "storage_bucket": "fir-firebase-737ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:368350921654:android:39a66ac33ebc3a94f67717",
+        "android_client_info": {
+          "package_name": "com.example.expense_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "368350921654-ci0m5pnh85dtvtf6nsfv59b1cccr2kka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxF6wu4zUkM4xvgjJjZYLWQ9-Llvz55cA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "368350921654-ci0m5pnh85dtvtf6nsfv59b1cccr2kka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
