@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -26,12 +25,16 @@ class AppTheme {
       primaryColor: AppColor.primaryColor,
       appBarTheme: const AppBarTheme(
           backgroundColor: AppColor.primaryColor,
-          elevation: 4,
+          elevation: 0,
           centerTitle: true,
           iconTheme: IconThemeData(
             size: 24,
             color: Colors.white,
           )
+      ),
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+        backgroundColor: AppColor.primaryColor,
+        splashColor: AppColor.primaryColor
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
@@ -104,6 +107,52 @@ class AppTheme {
             borderRadius: BorderRadius.circular(AppSize.defaultPadding),
           ),
           insetPadding: const EdgeInsets.all(AppSize.defaultPadding * 2)
+      ),
+    bottomNavigationBarTheme:  BottomNavigationBarThemeData(
+      elevation: 4,
+      selectedItemColor: AppColor.primaryColor,
+      unselectedItemColor: AppColor.grey,
+      selectedIconTheme: const IconThemeData(
+        color: AppColor.primaryColor,
+        weight: 2
+      ),
+      unselectedIconTheme: const IconThemeData(
+          color: AppColor.grey,
+          weight: 1
+      ),
+      unselectedLabelStyle: getTextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 16,
+        color: AppColor.black
+      ),
+      selectedLabelStyle: getTextStyle(
+          fontWeight: FontWeight.w600,
+          fontSize: 16,
+          color: AppColor.primaryColor
       )
+    ),
+    navigationRailTheme:  NavigationRailThemeData(
+      elevation: 4,
+      backgroundColor: AppColor.primaryColor,
+        labelType: NavigationRailLabelType.selected,
+        selectedIconTheme: const IconThemeData(
+            color: AppColor.white,
+            weight: 2
+        ),
+        unselectedIconTheme: const IconThemeData(
+            color: AppColor.grey,
+            weight: 1
+        ),
+        unselectedLabelTextStyle: getTextStyle(
+            fontWeight: FontWeight.w400,
+            fontSize: 16,
+            color: AppColor.grey
+        ),
+        selectedLabelTextStyle: getTextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 16,
+            color: AppColor.white
+        )
+    )
   );
 }

@@ -29,5 +29,12 @@
   "linkResetPasswordAlreadySentToThisEmail" : "Link reset password already sent to this email : ",
   "incorrectCurrentPassword": "Incorrect current password",
   "verifyEmail" : "Verify email",
-  "verifyEmailSuccess" : "Verify email success"
+  "verifyEmailSuccess" : "Verify email success",
+  "internalServerError": "Internal server error",
+  "sessionExpire": "Please login again",
+  "records": "Records",
+  "charts": "Charts",
+  "add" : "Add",
+  "expense": "Expense",
+  "income": "Income"
 }

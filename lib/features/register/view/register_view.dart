@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:expense_app/features/login/controller/login_controller.dart';
-import 'package:expense_app/features/register/view/register_view.dart';
+import 'package:expense_app/features/login/view/login_view.dart';
+import 'package:expense_app/features/register/controller/register_controller.dart';
 import 'package:expense_app/utils/app_color.dart';
 import 'package:expense_app/utils/app_size.dart';
 import 'package:expense_app/utils/app_theme.dart';
@@ -12,24 +12,24 @@ import 'package:expense_app/utils/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
-  LoginController loginController = LoginController();
+class _RegisterViewState extends State<RegisterView> {
+
+  RegisterController registerController = RegisterController();
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) {
-        return loginController;
-      },
-      child: Consumer<LoginController>(
-        builder: (context, controller, child) {
+    return ChangeNotifierProvider(create: (context){
+      return registerController;
+    },
+      child: Consumer<RegisterController>(
+        builder: (context,controller,child){
           return Scaffold(
             body: SingleChildScrollView(
               child: SizedBox(
@@ -43,13 +43,13 @@ class _LoginViewState extends State<LoginView> {
                         children: [
                           Container(
                             padding:
-                                const EdgeInsets.all(AppSize.defaultPadding),
+                            const EdgeInsets.all(AppSize.defaultPadding),
                             constraints: const BoxConstraints(
                               maxWidth: AppSize.widthOfFormAuth,
                             ),
                             decoration:
-                                CustomDecoration.customBoxDecorationAuth(
-                                    context: context),
+                            CustomDecoration.customBoxDecorationAuth(
+                                context: context),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -57,7 +57,7 @@ class _LoginViewState extends State<LoginView> {
                                   height: AppSize.defaultPadding * 2,
                                 ),
                                 Text(
-                                  AppTranslateKey.login.tr(),
+                                  AppTranslateKey.register.tr(),
                                   style: AppTheme.getTextStyle(
                                       fontSize: 24,
                                       fontWeight: FontWeight.w600),
@@ -73,7 +73,20 @@ class _LoginViewState extends State<LoginView> {
                                   decoration: InputDecoration(
                                       labelText: AppTranslateKey.email.tr(),
                                       prefixIcon:
-                                          const Icon(Icons.email_outlined)),
+                                      const Icon(Icons.email_outlined)),
+                                ),
+                                const SizedBox(
+                                  height: AppSize.defaultPadding,
+                                ),
+                                TextFormField(
+                                  controller: controller.fullNameController,
+                                  validator: (v) {
+                                    return ValidateForm.validationFullName(v);
+                                  },
+                                  decoration: InputDecoration(
+                                      labelText: AppTranslateKey.fullName.tr(),
+                                      prefixIcon:
+                                      const Icon(Icons.person_2_outlined)),
                                 ),
                                 const SizedBox(
                                   height: AppSize.defaultPadding,
@@ -87,7 +100,7 @@ class _LoginViewState extends State<LoginView> {
                                   decoration: InputDecoration(
                                       labelText: AppTranslateKey.password.tr(),
                                       prefixIcon:
-                                          const Icon(Icons.password_outlined),
+                                      const Icon(Icons.password_outlined),
                                       suffixIcon: InkWell(
                                           onTap: () {
                                             controller.clickShowPassword(data: !controller.isHidePassword);
@@ -95,24 +108,29 @@ class _LoginViewState extends State<LoginView> {
                                           child: Icon(controller.isHidePassword
                                               ? Icons.dangerous_outlined
                                               : Icons
-                                                  .remove_red_eye_outlined))),
+                                              .remove_red_eye_outlined))),
                                 ),
                                 const SizedBox(
                                   height: AppSize.defaultPadding,
                                 ),
-                                Align(
-                                  alignment: Alignment.topRight,
-                                  child: TextButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      AppTranslateKey.forgetPassword.tr(),
-                                      style: AppTheme.getTextStyle(
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 16,
-                                          decoration: TextDecoration.underline,
-                                          color: AppColor.primaryColor),
-                                    ),
-                                  ),
+                                TextFormField(
+                                  controller: controller.cfPasswordController,
+                                  validator: (v) {
+                                    return ValidateForm.validationCFPassword(v,password: controller.passwordController.text);
+                                  },
+                                  obscureText: controller.isHideCfPassword,
+                                  decoration: InputDecoration(
+                                      labelText: AppTranslateKey.password.tr(),
+                                      prefixIcon:
+                                      const Icon(Icons.password_outlined),
+                                      suffixIcon: InkWell(
+                                          onTap: () {
+                                            controller.clickShowCFPassword(data: !controller.isHideCfPassword);
+                                          },
+                                          child: Icon(controller.isHideCfPassword
+                                              ? Icons.dangerous_outlined
+                                              : Icons
+                                              .remove_red_eye_outlined))),
                                 ),
                                 const SizedBox(
                                   height: AppSize.defaultPadding,
@@ -126,24 +144,25 @@ class _LoginViewState extends State<LoginView> {
                                     children: [
                                       Expanded(
                                         child: CustomButton(
+                                            backgroundColor: AppColor.grey,
                                             onPressed: () {
-                                              if (controller
-                                                  .keyForm.currentState!
-                                                  .validate()) {
-                                                controller.login();
-                                              }
+                                              NavigationService.instance.pushAndRemoveUntil(const LoginView());
                                             },
                                             child: Text(
-                                                AppTranslateKey.login.tr())),
+                                                AppTranslateKey.back.tr())),
                                       ),
                                       const SizedBox(
                                         width: AppSize.defaultPadding,
                                       ),
                                       Expanded(
                                         child: CustomButton(
-                                            backgroundColor: AppColor.grey,
+                                            backgroundColor: AppColor.primaryColor,
                                             onPressed: () {
-                                              NavigationService.instance.pushAndRemoveUntil(const RegisterView());
+
+                                              if(controller.keyForm.currentState!.validate()){
+                                                controller.register();
+                                              }
+
                                             },
                                             child: Text(
                                                 AppTranslateKey.register.tr())),
