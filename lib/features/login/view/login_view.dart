@@ -40,52 +40,52 @@ class _LoginViewState extends State<LoginView> {
                       child: Stack(
                         children: [
                           Container(
-                            padding: const EdgeInsets.all(AppSize.defaultPadding),
+                            padding:
+                                const EdgeInsets.all(AppSize.defaultPadding),
                             constraints: const BoxConstraints(
                               maxWidth: AppSize.widthOfFormAuth,
                             ),
-                            decoration: CustomDecoration.customBoxDecorationAuth(
-                                context: context),
+                            decoration:
+                                CustomDecoration.customBoxDecorationAuth(
+                                    context: context),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                               const SizedBox(
+                                const SizedBox(
                                   height: AppSize.defaultPadding * 2,
                                 ),
-                                Text(AppTranslateKey.login.tr(),style: AppTheme.getTextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w600
-                                ),),
+                                Text(
+                                  AppTranslateKey.login.tr(),
+                                  style: AppTheme.getTextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600),
+                                ),
                                 const SizedBox(
                                   height: AppSize.defaultPadding,
                                 ),
                                 TextFormField(
                                   controller: controller.emailController,
-                                  validator: (v){
+                                  validator: (v) {
                                     return ValidateForm.validationEmail(v);
                                   },
                                   decoration: InputDecoration(
-                                    labelText: AppTranslateKey.email.tr()
-                                  ),
+                                      labelText: AppTranslateKey.email.tr()),
                                 ),
                                 const SizedBox(
                                   height: AppSize.defaultPadding,
                                 ),
                                 TextFormField(
                                   controller: controller.emailController,
-                                  validator: (v){
+                                  validator: (v) {
                                     return ValidateForm.validationPassword(v);
                                   },
                                   decoration: InputDecoration(
-                                      labelText: AppTranslateKey.password.tr()
-                                  ),
+                                      labelText: AppTranslateKey.password.tr()),
                                 ),
                                 Align(
                                   alignment: Alignment.topRight,
                                   child: TextButton(
-                                    onPressed: (){
-
-                                    },
+                                    onPressed: () {},
                                     child: Text(
                                       AppTranslateKey.forgetPassword.tr(),
                                       style: AppTheme.getTextStyle(
@@ -108,12 +108,10 @@ class _LoginViewState extends State<LoginView> {
                                     children: [
                                       Expanded(
                                         child: CustomButton(
-                                            onPressed:
-                                                () {
-                                              if (controller.keyForm.currentState!
-                                                  .validate()) {
-
-                                              }
+                                            onPressed: () {
+                                              if (controller
+                                                  .keyForm.currentState!
+                                                  .validate()) {}
                                             },
                                             child: Text(
                                                 AppTranslateKey.login.tr())),
@@ -123,11 +121,8 @@ class _LoginViewState extends State<LoginView> {
                                       ),
                                       Expanded(
                                         child: CustomButton(
-                                            backgroundColor:
-                                            AppColor.grey,
-                                            onPressed: () {
-
-                                            },
+                                            backgroundColor: AppColor.grey,
+                                            onPressed: () {},
                                             child: Text(
                                                 AppTranslateKey.register.tr())),
                                       ),

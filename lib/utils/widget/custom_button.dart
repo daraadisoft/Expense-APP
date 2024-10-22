@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:expense_app/utils/app_color.dart';
 import 'package:expense_app/utils/app_size.dart';
 import 'package:flutter/material.dart';
