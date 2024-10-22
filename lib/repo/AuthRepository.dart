@@ -1,5 +1,5 @@
+import 'package:expense_app/firebase_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:hrm_demo/firebase_service.dart';
 
 class AuthRepository{
 

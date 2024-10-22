@@ -1,7 +1,9 @@
-import 'package:hrm_demo/features/login/view/login_view.dart';
-import 'package:hrm_demo/repo/AuthRepository.dart';
-import 'package:hrm_demo/utils/base_controller.dart';
-import 'package:hrm_demo/utils/navigation_service.dart';
+
+
+import 'package:expense_app/features/login/view/login_view.dart';
+import 'package:expense_app/repo/AuthRepository.dart';
+import 'package:expense_app/utils/base_controller.dart';
+import 'package:expense_app/utils/navigation_service.dart';
 
 class SplashController extends BaseController{
 
@@ -19,7 +21,7 @@ class SplashController extends BaseController{
 
     //login
     if(data == null){
-      //NavigationService.instance.pushAndRemoveUntil(const LoginView());
+      NavigationService.instance.pushAndRemoveUntil(const LoginView());
     }
 
     //go to home page

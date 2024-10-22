@@ -1,0 +1,33 @@
+class AppTranslateKey{
+  static const String email = 'email';
+  static const String password = 'password';
+  static const String confirmPassword = 'confirmPassword';
+  static const String fullName = 'fullName';
+  static const String home = 'home';
+  static const String loginNow = 'loginNow';
+  static const String register = 'register';
+  static const String forgetPassword = 'forget_password';
+  static const String error = 'error';
+  static const String ok = 'ok';
+  static const String pleaseEnterInformationBelow = 'pleaseEnterInformationBelow';
+  static const String emailNotExist = 'emailNotExist';
+  static const String passwordIncorrect = 'passwordIncorrect';
+  static const String login = 'login';
+  static const String pleaseVerifyYourEmail = 'pleaseVerifyYourEmail';
+  static const String pleaseEnterTheEmail = 'pleaseEnterTheEmail';
+  static const String yourEmailEnterIsNotValid = 'yourEmailEnterIsNotValid';
+  static const String pleaseEnterThePassword = 'pleaseEnterThePassword';
+  static const String minimumPassword = 'minimumPassword';
+  static const String loading = 'loading';
+  static const String somethingWhenWrong = 'somethingWhenWrong';
+  static const String verificationLinkHasBeenSendToThisEmail = 'verificationLinkHasBeenSendToThisEmail';
+  static const String pleaseEnterTheFullName = 'pleaseEnterTheFullName';
+  static const String confirmPasswordNotMatch = 'confirmPasswordNotMatch';
+  static const String back = 'back';
+  static const String emailAlreadyExist = 'emailAlreadyExits';
+  static const String sendEmail = 'sendEmail';
+  static const String linkResetPasswordAlreadySentToThisEmail = 'linkResetPasswordAlreadySentToThisEmail';
+  static const String incorrectCurrentPassword = 'incorrectCurrentPassword';
+  static const String verifyEmail = 'verifyEmail';
+  static const String verifyEmailSuccess = 'verifyEmailSuccess';
+}

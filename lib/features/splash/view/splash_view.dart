@@ -1,6 +1,6 @@
+import 'package:expense_app/features/splash/controller/splash_controller.dart';
+import 'package:expense_app/utils/app_assets.dart';
 import 'package:flutter/material.dart';
-import 'package:hrm_demo/features/splash/controller/splash_controller.dart';
-import 'package:hrm_demo/utils/app_assets.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
