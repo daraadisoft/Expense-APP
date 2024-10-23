@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:expense_app/utils/app_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
