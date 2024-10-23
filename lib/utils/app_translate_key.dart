@@ -30,4 +30,11 @@ class AppTranslateKey{
   static const String incorrectCurrentPassword = 'incorrectCurrentPassword';
   static const String verifyEmail = 'verifyEmail';
   static const String verifyEmailSuccess = 'verifyEmailSuccess';
+  static const String internalServerError = 'internalServerError';
+  static const String sessionExpire = 'sessionExpire';
+  static const String records = 'records';
+  static const String charts = 'charts';
+  static const String add = 'add';
+  static const String expense = 'expense';
+  static const String income = 'income';
 }
