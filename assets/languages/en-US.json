@@ -36,5 +36,8 @@
   "charts": "Charts",
   "add" : "Add",
   "expense": "Expense",
-  "income": "Income"
+  "income": "Income",
+  "enterANote": "Enter a note",
+  "amount": "Amount",
+  "save": "Save"
 }

@@ -8,6 +8,9 @@ class AppUrl{
   //category
   static const String getCategory = '$baseURL/getCategoriesApi';
 
+  //expense
+  static const String createExpense = '$baseURL/createExpenseApi';
+  static const String getExpense = '$baseURL/getExpensesApi';
 
 
   //auth
