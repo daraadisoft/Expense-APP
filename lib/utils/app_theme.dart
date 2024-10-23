@@ -7,12 +7,9 @@ import 'app_size.dart';
 class AppTheme {
   static ThemeData get appLightTheme => _appLightTheme;
 
-  static TextStyle getTextStyle(
-      {double fontSize = 12,
-      FontWeight fontWeight = FontWeight.w400,
-      Color color = Colors.black,
-      TextDecoration? decoration}) {
-    return GoogleFonts.openSans(
+
+  static TextStyle getTextStyle({double fontSize = 12 , FontWeight fontWeight = FontWeight.w400 , Color color = Colors.black , TextDecoration? decoration}){
+    return GoogleFonts.battambang(
         fontSize: fontSize,
         fontWeight: fontWeight,
         color: color,
@@ -115,7 +112,7 @@ class AppTheme {
 
           insetPadding: const EdgeInsets.all(AppSize.defaultPadding * 2)
       ),
-    bottomNavigationBarTheme:  BottomNavigationBarThemeData(
+      bottomNavigationBarTheme:  BottomNavigationBarThemeData(
       elevation: 4,
       selectedItemColor: AppColor.primaryColor,
       unselectedItemColor: AppColor.grey,
@@ -138,7 +135,7 @@ class AppTheme {
           color: AppColor.primaryColor
       )
     ),
-    navigationRailTheme:  NavigationRailThemeData(
+      navigationRailTheme:  NavigationRailThemeData(
       elevation: 4,
       backgroundColor: AppColor.primaryColor,
         labelType: NavigationRailLabelType.selected,
@@ -160,6 +157,19 @@ class AppTheme {
             fontSize: 16,
             color: AppColor.white
         )
-    )
+    ),
+      datePickerTheme: const DatePickerThemeData(
+        headerBackgroundColor: AppColor.primaryColor,
+        todayBorder: BorderSide(
+          color: AppColor.primaryColor,
+        ),
+        cancelButtonStyle: ButtonStyle(
+          textStyle: WidgetStatePropertyAll(TextStyle(color: AppColor.primaryColor))
+        ),
+        confirmButtonStyle:  ButtonStyle(
+            textStyle: WidgetStatePropertyAll(TextStyle(color: AppColor.primaryColor))
+        ),
+        rangePickerBackgroundColor: AppColor.primaryColor
+      )
   );
 }

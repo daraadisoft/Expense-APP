@@ -37,4 +37,7 @@ class AppTranslateKey{
   static const String add = 'add';
   static const String expense = 'expense';
   static const String income = 'income';
+  static const String enterANote = 'enterANote';
+  static const String amount = 'amount';
+  static const String save = 'save';
 }

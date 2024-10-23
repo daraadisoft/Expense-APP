@@ -1,14 +1,14 @@
 class QueryHelper {
   List<Query> query = [];
   String? lastDocumentID;
-  String? orderby;
+  String? orderBy;
   String? direction;
   int? limit;
 
   QueryHelper(
       {this.query = const [],
         this.lastDocumentID,
-        this.orderby,
+        this.orderBy,
         this.direction,
         this.limit});
 
@@ -20,7 +20,7 @@ class QueryHelper {
       });
     }
     lastDocumentID = json['lastDocumentID'];
-    orderby = json['orderby'];
+    orderBy = json['orderby'];
     direction = json['direction'];
     limit = json['limit'];
   }
@@ -29,7 +29,7 @@ class QueryHelper {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['query'] = query.map((v) => v.toJson()).toList();
       data['lastDocumentID'] = lastDocumentID;
-    data['orderby'] = orderby;
+    data['orderBy'] = orderBy;
     data['direction'] = direction;
     data['limit'] = limit;
     return data;
@@ -38,7 +38,7 @@ class QueryHelper {
 
 class Query {
   String? field;
-  String? value;
+  dynamic value;
   QueryOperator? operator;
 
   Query({required this.field, required this.value, required this.operator});
