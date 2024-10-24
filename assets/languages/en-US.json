@@ -39,5 +39,10 @@
   "income": "Income",
   "enterANote": "Enter a note",
   "amount": "Amount",
-  "save": "Save"
+  "save": "Save",
+  "expenses": "Expenses",
+  "balance": "Balance",
+  "noRecords": "No records",
+  "date": "Date",
+  "to": "To"
 }

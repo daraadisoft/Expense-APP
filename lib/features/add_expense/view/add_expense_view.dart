@@ -40,7 +40,7 @@ class _AddExpenseViewState extends State<AddExpenseView> {
                   onTap: () {
                     NavigationService.instance.pop(result: {
                       'isAddRecord': controller.isAddRecord,
-                      'data': controller.date
+                      'date': controller.date
                     });
                   },
                   child: const Icon(Icons.arrow_back_outlined),

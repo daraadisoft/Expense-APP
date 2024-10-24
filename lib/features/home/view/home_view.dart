@@ -55,28 +55,25 @@ class _HomeViewState extends State<HomeView> {
       return const SizedBox();
     }
 
-    return Container(
-      margin: const EdgeInsets.only(right: AppSize.defaultPadding),
-      child: NavigationRail(
-        selectedIndex: index,
-        onDestinationSelected: (v) {
-          setState(() {
-            index = v;
-          });
-        },
-        destinations: [
-          NavigationRailDestination(
-            icon: const Icon(Icons.receipt_outlined),
-            selectedIcon: const Icon(Icons.receipt),
-            label: Text(AppTranslateKey.records.tr()),
-          ),
-          NavigationRailDestination(
-            icon: const Icon(Icons.pie_chart_outline),
-            selectedIcon: const Icon(Icons.pie_chart),
-            label: Text(AppTranslateKey.charts.tr()),
-          ),
-        ],
-      ),
+    return NavigationRail(
+      selectedIndex: index,
+      onDestinationSelected: (v) {
+        setState(() {
+          index = v;
+        });
+      },
+      destinations: [
+        NavigationRailDestination(
+          icon: const Icon(Icons.receipt_outlined),
+          selectedIcon: const Icon(Icons.receipt),
+          label: Text(AppTranslateKey.records.tr()),
+        ),
+        NavigationRailDestination(
+          icon: const Icon(Icons.pie_chart_outline),
+          selectedIcon: const Icon(Icons.pie_chart),
+          label: Text(AppTranslateKey.charts.tr()),
+        ),
+      ],
     );
   }
 }
