@@ -11,6 +11,7 @@ import 'package:expense_app/utils/widget/custom_grid_view.dart';
 import 'package:expense_app/utils/widget/no_records_widget.dart';
 import 'package:expense_app/utils/widget/percentage_category_widget.dart';
 import 'package:expense_app/utils/widget/tab_button.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -46,7 +47,7 @@ class _ChartsViewState extends State<ChartsView> {
                 flexibleSpace: Container(
                   height: 80,
                   margin:
-                      const EdgeInsets.only(top: AppSize.defaultPadding * 5),
+                      const EdgeInsets.only(top: AppSize.defaultPadding * (kIsWeb ? 3 : 5)),
                   padding: const EdgeInsets.symmetric(
                       horizontal: AppSize.defaultPadding * 2,
                       vertical: AppSize.defaultPadding),

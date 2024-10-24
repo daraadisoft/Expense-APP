@@ -12,6 +12,7 @@ import 'package:expense_app/utils/widget/custom_grid_view.dart';
 import 'package:expense_app/utils/widget/date_expense_widget.dart';
 import 'package:expense_app/utils/widget/header_records_widget.dart';
 import 'package:expense_app/utils/widget/no_records_widget.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -86,7 +87,7 @@ class _RecordViewState extends State<RecordView> {
                 flexibleSpace: Container(
                   height: 100,
                   margin:
-                      const EdgeInsets.only(top: AppSize.defaultPadding * 5),
+                      const EdgeInsets.only(top: AppSize.defaultPadding * (kIsWeb ? 3 : 5)),
                   padding: const EdgeInsets.symmetric(
                       vertical: AppSize.defaultPadding),
                   child: ListView.builder(
