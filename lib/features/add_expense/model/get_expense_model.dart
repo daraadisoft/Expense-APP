@@ -59,13 +59,14 @@ class Transaction {
   String? id;
   String? description;
   CategoryModel categoryModel = CategoryModel();
-
-  Transaction({this.id = '', this.amount = 0, this.description = ''});
+  String? type;
+  Transaction({this.id = '', this.amount = 0, this.description = '',this.type = ''});
 
   Transaction.fromJson(Map json) {
     categoryModel = CategoryModel.fromJson(json['category']);
     description = json['description'].toString();
     amount = double.tryParse(json['amount'].toString()) ?? 0;
     id = json['id'].toString();
+    type = json['type'].toString();
   }
 }

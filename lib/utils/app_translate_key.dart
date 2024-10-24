@@ -40,4 +40,9 @@ class AppTranslateKey{
   static const String enterANote = 'enterANote';
   static const String amount = 'amount';
   static const String save = 'save';
+  static const String expenses = 'expenses';
+  static const String balance = 'balance';
+  static const String noRecords = 'noRecords';
+  static const String date = 'date';
+  static const String to = 'to';
 }

@@ -160,6 +160,8 @@ class AppTheme {
     ),
       datePickerTheme: const DatePickerThemeData(
         headerBackgroundColor: AppColor.primaryColor,
+        rangeSelectionBackgroundColor: AppColor.primaryColor,
+        rangePickerHeaderForegroundColor: AppColor.white,
         todayBorder: BorderSide(
           color: AppColor.primaryColor,
         ),
@@ -169,7 +171,7 @@ class AppTheme {
         confirmButtonStyle:  ButtonStyle(
             textStyle: WidgetStatePropertyAll(TextStyle(color: AppColor.primaryColor))
         ),
-        rangePickerBackgroundColor: AppColor.primaryColor
-      )
+        rangePickerBackgroundColor: AppColor.white,
+      ),
   );
 }

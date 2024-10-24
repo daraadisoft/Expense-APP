@@ -32,4 +32,23 @@ class DateHelper {
 
     return months[month - 1];
   }
+
+  static String getDayName({required String date}) {
+    try {
+      DateFormat inputFormat = DateFormat("dd-MMM-yyyy");
+      DateTime dateTime = inputFormat.parse(date);
+      return DateFormat('EEEE').format(dateTime);
+    } catch (e) {
+      return 'N/A';
+    }
+  }
+
+  static DateTime getDate({required String date}) {
+    try {
+      DateFormat dateFormat = DateFormat("dd-MMM-yyyy");
+      return dateFormat.parse(date);
+    } catch (e) {
+      return DateTime.now();
+    }
+  }
 }

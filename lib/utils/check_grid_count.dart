@@ -11,4 +11,22 @@ class CheckGridCount {
       return 4;
     }
   }
+
+  static int checkGridCountRecordView(BuildContext context){
+    if (MediaQuery.of(context).size.width > AppSize.desktopSize) {
+      return 3;
+    } else if (MediaQuery.of(context).size.width > AppSize.tabletSize) {
+      return 2;
+    } else {
+      return 1;
+    }
+  }
+
+  static int checkGridCountChartView(BuildContext context){
+    if (MediaQuery.of(context).size.width > AppSize.desktopSize) {
+      return 2;
+    } else {
+      return 1;
+    }
+  }
 }

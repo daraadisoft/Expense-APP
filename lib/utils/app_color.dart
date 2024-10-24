@@ -12,4 +12,12 @@ class AppColor {
   static const Color black = Colors.black;
 
   static const Color grey200 = Colors.grey;
+
+  static Color decodeColor({required String hex}){
+    try{
+      return Color(int.parse('FF$hex', radix: 16));
+    }catch(e){
+      return primaryColor;
+    }
+  }
 }
