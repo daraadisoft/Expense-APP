@@ -16,9 +16,9 @@ class RecordController extends BaseController {
 
   GetExpenseModel getExpenseModel = GetExpenseModel();
 
-  DateTime startDateTime = DateTime.now();
+  DateTime startDateTime = DateTime(DateTime.now().year,DateTime.now().month,1);
 
-  DateTime endDateTime = DateTime.now();
+  DateTime endDateTime = DateTime(DateTime.now().year,DateTime.now().month,31);
 
   String dateDisplay = '';
 
