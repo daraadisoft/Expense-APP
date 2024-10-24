@@ -5,11 +5,13 @@ import 'package:expense_app/utils/app_size.dart';
 import 'package:expense_app/utils/app_theme.dart';
 import 'package:expense_app/utils/app_translate_key.dart';
 import 'package:expense_app/utils/check_grid_count.dart';
+import 'package:expense_app/utils/date_helper.dart';
 import 'package:expense_app/utils/navigation_service.dart';
 import 'package:expense_app/utils/widget/category_icon_widget.dart';
 import 'package:expense_app/utils/widget/custom_button.dart';
 import 'package:expense_app/utils/widget/custom_grid_view.dart';
 import 'package:expense_app/utils/widget/tab_button.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -40,7 +42,7 @@ class _AddExpenseViewState extends State<AddExpenseView> {
                   onTap: () {
                     NavigationService.instance.pop(result: {
                       'isAddRecord': controller.isAddRecord,
-                      'date': controller.date
+                      'date': controller.date ?? '${DateTime.now().day}-${DateHelper.getMonthName(month: DateTime.now().month)}-${DateTime.now().year}'
                     });
                   },
                   child: const Icon(Icons.arrow_back_outlined),
@@ -89,7 +91,7 @@ class _AddExpenseViewState extends State<AddExpenseView> {
                 flexibleSpace: Container(
                   height: 80,
                   margin:
-                      const EdgeInsets.only(top: AppSize.defaultPadding * 5),
+                      const EdgeInsets.only(top: AppSize.defaultPadding * (kIsWeb ? 3 : 5)),
                   padding: const EdgeInsets.symmetric(
                       horizontal: AppSize.defaultPadding * 2,
                       vertical: AppSize.defaultPadding),
@@ -145,7 +147,7 @@ class _AddExpenseViewState extends State<AddExpenseView> {
                 );
               },
             ),
-            bottomNavigationBar: Visibility(
+            bottomSheet: Visibility(
               visible: controller.indexCategory != -1,
               child: Container(
                 margin: const EdgeInsets.all(AppSize.defaultPadding),
