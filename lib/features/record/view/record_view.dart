@@ -32,6 +32,26 @@ class _RecordViewState extends State<RecordView> {
       },
       child: Consumer<RecordController>(
         builder: (context, controller, child) {
+
+          List<Widget> headerList = [
+            Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppSize.defaultPadding),
+                child: HeaderRecordsWidget(header: controller.dateDisplay, value: AppTranslateKey.date.tr())
+            ),
+            Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppSize.defaultPadding),
+                child: HeaderRecordsWidget(header: AppTranslateKey.expenses.tr(), value: controller.getExpenseModel.totalExpense.toString())
+            ),
+            Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppSize.defaultPadding),
+                child: HeaderRecordsWidget(header: AppTranslateKey.income.toString(), value: controller.getExpenseModel.totalIncome.toString())
+            ),
+            Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppSize.defaultPadding),
+                child: HeaderRecordsWidget(header: AppTranslateKey.balance.toString(), value: controller.getExpenseModel.balance.toString())
+            ),
+          ];
+
           return Scaffold(
             appBar: PreferredSize(
               preferredSize: Size(MediaQuery.of(context).size.width, 140),
@@ -66,17 +86,16 @@ class _RecordViewState extends State<RecordView> {
                 flexibleSpace: Container(
                   height: 100,
                   margin:
-                      const EdgeInsets.only(top: AppSize.defaultPadding * 3),
+                      const EdgeInsets.only(top: AppSize.defaultPadding * 5),
                   padding: const EdgeInsets.symmetric(
                       vertical: AppSize.defaultPadding),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      HeaderRecordsWidget(header: controller.dateDisplay, value: AppTranslateKey.date.tr()),
-                      HeaderRecordsWidget(header: AppTranslateKey.expenses.tr(), value: controller.getExpenseModel.totalExpense.toString()),
-                      HeaderRecordsWidget(header: AppTranslateKey.income.toString(), value: controller.getExpenseModel.totalIncome.toString()),
-                      HeaderRecordsWidget(header: AppTranslateKey.balance.toString(), value: controller.getExpenseModel.balance.toString()),
-                    ]
+                  child: ListView.builder(
+                    itemCount: headerList.length,
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemBuilder: (context,index){
+                      return headerList[index];
+                    },
                   ),
                 ),
               ),

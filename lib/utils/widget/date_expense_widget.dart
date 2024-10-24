@@ -31,7 +31,7 @@ class DateExpenseWidget extends StatelessWidget {
             ),
             const Spacer(),
             Visibility(
-              visible: dateExpense.expense.toString() != '0',
+              visible: dateExpense.expense.toString() != '0.0',
               child: Text(
                 '${AppTranslateKey.expense.tr()} : ${dateExpense.expense.toString()}',
                 style: AppTheme.getTextStyle(
@@ -41,12 +41,12 @@ class DateExpenseWidget extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: dateExpense.income.toString() != '0'
+              width: dateExpense.income.toString() != '0.0'
                   ? AppSize.defaultPadding / 2
                   : 0,
             ),
             Visibility(
-              visible: dateExpense.income.toString() != '0',
+              visible: dateExpense.income.toString() != '0.0',
               child: Text(
                 '${AppTranslateKey.income.tr()} : ${dateExpense.income.toString()}',
                 style: AppTheme.getTextStyle(
@@ -73,6 +73,7 @@ class DateExpenseWidget extends StatelessWidget {
               itemCount: dateExpense.transactions.length,
               shrinkWrap: true,
               padding: EdgeInsets.zero,
+              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 var data = dateExpense.transactions[index];
                 return TransactionWidget(

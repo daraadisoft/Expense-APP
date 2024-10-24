@@ -29,4 +29,16 @@ class CheckGridCount {
       return 1;
     }
   }
+
+  static int checkGridCountHeaderRecordView(BuildContext context){
+    if (MediaQuery.of(context).size.width > AppSize.desktopSize) {
+      return 4;
+    }
+    else if(MediaQuery.of(context).size.width > AppSize.tabletSize){
+      return 3;
+    }
+    else {
+      return 2;
+    }
+  }
 }

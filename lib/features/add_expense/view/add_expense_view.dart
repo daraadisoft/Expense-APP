@@ -89,7 +89,7 @@ class _AddExpenseViewState extends State<AddExpenseView> {
                 flexibleSpace: Container(
                   height: 80,
                   margin:
-                      const EdgeInsets.only(top: AppSize.defaultPadding * 3),
+                      const EdgeInsets.only(top: AppSize.defaultPadding * 5),
                   padding: const EdgeInsets.symmetric(
                       horizontal: AppSize.defaultPadding * 2,
                       vertical: AppSize.defaultPadding),

@@ -56,7 +56,7 @@ class _GraphicWidgetState extends State<GraphicWidget> {
       chartValuesOptions:  ChartValuesOptions(
         showChartValueBackground: true,
         showChartValues: true,
-        showChartValuesInPercentage: false,
+        showChartValuesInPercentage: true,
         showChartValuesOutside: false,
         decimalPlaces: 1,
         chartValueStyle: AppTheme.getTextStyle(
