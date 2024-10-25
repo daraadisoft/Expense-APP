@@ -23,7 +23,6 @@ class RecordView extends StatefulWidget {
 
 class _RecordViewState extends State<RecordView> {
   RecordController recordController = RecordController();
-
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -57,6 +56,24 @@ class _RecordViewState extends State<RecordView> {
             appBar: PreferredSize(
               preferredSize: Size(MediaQuery.of(context).size.width, 140),
               child: AppBar(
+                leading: InkWell(
+                  onTap: () async {
+                    final DateTimeRange? datePicker = await showDateRangePicker(
+                      context: context,
+                      firstDate: DateTime(DateTime.now().year),
+                      lastDate: DateTime(DateTime.now().year + 10),
+                    );
+
+                    if (datePicker != null) {
+                      controller.setNewDate(date: datePicker);
+                    }
+                  },
+                  child: const Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: AppSize.defaultPadding,
+                          vertical: AppSize.defaultPadding),
+                      child: Icon(Icons.calendar_month_outlined)),
+                ),
                 title: Text(
                   AppTranslateKey.records.tr(),
                   style: AppTheme.getTextStyle(
@@ -66,22 +83,15 @@ class _RecordViewState extends State<RecordView> {
                 ),
                 actions: [
                   InkWell(
-                    onTap: () async {
-                      final DateTimeRange? datePicker = await showDateRangePicker(
-                        context: context,
-                        firstDate: DateTime(DateTime.now().year),
-                        lastDate: DateTime(DateTime.now().year + 10),
-                      );
-
-                      if (datePicker != null) {
-                        controller.setNewDate(date: datePicker);
-                      }
-                    },
-                    child: const Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: AppSize.defaultPadding,
-                            vertical: AppSize.defaultPadding),
-                        child: Icon(Icons.calendar_month_outlined)),
+                      onTap: (){
+                        controller.logOut();
+                      },
+                      child: const Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: AppSize.defaultPadding,
+                              vertical: AppSize.defaultPadding),
+                          child: Icon(Icons.logout)
+                      )
                   ),
                 ],
                 flexibleSpace: Container(

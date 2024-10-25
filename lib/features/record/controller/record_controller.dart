@@ -1,5 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:expense_app/features/add_expense/model/get_expense_model.dart';
+import 'package:expense_app/features/login/view/login_view.dart';
+import 'package:expense_app/firebase_service.dart';
+import 'package:expense_app/repo/auth_repository.dart';
 import 'package:expense_app/repo/expense_repository.dart';
 import 'package:expense_app/utils/app_translate_key.dart';
 import 'package:expense_app/utils/base_controller.dart';
@@ -8,6 +11,7 @@ import 'package:expense_app/utils/data/category_type.dart';
 import 'package:expense_app/utils/data/direction_enum.dart';
 import 'package:expense_app/utils/data/query_helper.dart';
 import 'package:expense_app/utils/date_helper.dart';
+import 'package:expense_app/utils/navigation_service.dart';
 import 'package:expense_app/utils/widget/pop_up_dialog.dart';
 import 'package:flutter/material.dart';
 
@@ -102,5 +106,14 @@ class RecordController extends BaseController {
     startDateTime = date.start;
     endDateTime = date.end;
     getExpense();
+  }
+
+  void logOut()async{
+    var data = await AuthRepository.instance.logOut();
+    if(!data.success){
+      PopUpDialog.showErrorDialog(message: data.message);
+      return;
+    }
+    NavigationService.instance.pushAndRemoveUntil(const LoginView());
   }
 }
