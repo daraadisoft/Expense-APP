@@ -42,7 +42,8 @@ class _AddExpenseViewState extends State<AddExpenseView> {
                   onTap: () {
                     NavigationService.instance.pop(result: {
                       'isAddRecord': controller.isAddRecord,
-                      'date': controller.date ?? '${DateTime.now().day}-${DateHelper.getMonthName(month: DateTime.now().month)}-${DateTime.now().year}'
+                      'date': controller.date ??
+                          '${DateTime.now().day}-${DateHelper.getMonthName(month: DateTime.now().month)}-${DateTime.now().year}'
                     });
                   },
                   child: const Icon(Icons.arrow_back_outlined),
@@ -90,8 +91,8 @@ class _AddExpenseViewState extends State<AddExpenseView> {
                 ],
                 flexibleSpace: Container(
                   height: 80,
-                  margin:
-                      const EdgeInsets.only(top: AppSize.defaultPadding * (kIsWeb ? 3 : 5)),
+                  margin: const EdgeInsets.only(
+                      top: AppSize.defaultPadding * (kIsWeb ? 3 : 5)),
                   padding: const EdgeInsets.symmetric(
                       horizontal: AppSize.defaultPadding * 2,
                       vertical: AppSize.defaultPadding),
@@ -115,37 +116,49 @@ class _AddExpenseViewState extends State<AddExpenseView> {
                 ),
               ),
             ),
-            body: Builder(
-              builder: (context) {
-                if (controller.isLoading) {
-                  return const Center(child: CircularProgressIndicator());
+            body: PopScope(
+              canPop: false,
+              onPopInvoked: (v) {
+                if (!v) {
+                  NavigationService.instance.pop(result: {
+                    'isAddRecord': controller.isAddRecord,
+                    'date': controller.date ??
+                        '${DateTime.now().day}-${DateHelper.getMonthName(month: DateTime.now().month)}-${DateTime.now().year}'
+                  });
                 }
-
-                return Container(
-                  margin: const EdgeInsets.only(top: AppSize.defaultPadding),
-                  child: CustomGridView(
-                    itemCount: controller.indexType == 0
-                        ? controller.listExpenseType.length
-                        : controller.listIncomeType.length,
-                    shrinkWrap: true,
-                    crossAxisCount:
-                        CheckGridCount.checkGridCountCategory(context),
-                    builder: (context, index) {
-                      var data = controller.indexType == 0
-                          ? controller.listExpenseType[index]
-                          : controller.listIncomeType[index];
-                      return InkWell(
-                          onTap: () {
-                            controller.changeIndexCategory(data: index);
-                          },
-                          child: CategoryIconWidget(
-                              imageURL: data.url.toString(),
-                              name: data.name.toString(),
-                              isActive: index == controller.indexCategory));
-                    },
-                  ),
-                );
               },
+              child: Builder(
+                builder: (context) {
+                  if (controller.isLoading) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+
+                  return Container(
+                    margin: const EdgeInsets.only(top: AppSize.defaultPadding),
+                    child: CustomGridView(
+                      itemCount: controller.indexType == 0
+                          ? controller.listExpenseType.length
+                          : controller.listIncomeType.length,
+                      shrinkWrap: true,
+                      crossAxisCount:
+                          CheckGridCount.checkGridCountCategory(context),
+                      builder: (context, index) {
+                        var data = controller.indexType == 0
+                            ? controller.listExpenseType[index]
+                            : controller.listIncomeType[index];
+                        return InkWell(
+                            onTap: () {
+                              controller.changeIndexCategory(data: index);
+                            },
+                            child: CategoryIconWidget(
+                                imageURL: data.url.toString(),
+                                name: data.name.toString(),
+                                isActive: index == controller.indexCategory));
+                      },
+                    ),
+                  );
+                },
+              ),
             ),
             bottomSheet: Visibility(
               visible: controller.indexCategory != -1,
