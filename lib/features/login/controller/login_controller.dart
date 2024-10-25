@@ -3,8 +3,11 @@ import 'package:expense_app/features/home/view/home_view.dart';
 import 'package:expense_app/repo/auth_repository.dart';
 import 'package:expense_app/utils/app_translate_key.dart';
 import 'package:expense_app/utils/base_controller.dart';
+import 'package:expense_app/utils/data/category_enum.dart';
 import 'package:expense_app/utils/navigation_service.dart';
 import 'package:expense_app/utils/widget/pop_up_dialog.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 
 class LoginController extends BaseController {
@@ -48,6 +51,7 @@ class LoginController extends BaseController {
       return;
     }
 
+    FirebaseMessaging.instance.subscribeToTopic(CategoryEnum.topicNotification);
     NavigationService.instance.pushAndRemoveUntil(const HomeView());
     isLoading = false;
     notifyListeners();
@@ -67,7 +71,6 @@ class LoginController extends BaseController {
       PopUpDialog.showErrorDialog(message: data.message);
       return;
     }
-
     PopUpDialog.showSnackBarMessage(message: data.message);
 
   }
