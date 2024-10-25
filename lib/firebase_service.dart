@@ -52,6 +52,7 @@ class FirebaseService {
   }
 
   static void alertNotification({required Map data}) async {
+    print("HAHA123 : ${data}");
     try {
       await AwesomeNotifications().createNotification(
           content: NotificationContent(
